@@ -19,7 +19,7 @@ def createList():
     return int_list
 
 ## intSearch
-## Function searches the passed list fro the presence of a user specified int
+## Function searches the passed list for the presence of a user specified int in the first or last spot
 
 def intSearch(test_list):
     search_int = int(input("What integer are you looking for? "))
@@ -28,3 +28,33 @@ def intSearch(test_list):
         print(search_int, "is in the list")
     else:
         print(search_int, "is not in the list")
+
+## firstLastSearch
+## Function searches the passed list fro the presence of a user specified int
+
+def firstLastSearch(test_list):
+    search_int = int(input("What integer are you looking for? "))
+    print("You are looking for ", search_int, "in the first, or last spot." )
+    if search_int == test_list[0] or search_int == test_list[len(test_list) - 1]:
+        print("The first, or last digit is ", search_int)
+    else:
+        print("The first, or last digit is not ", search_int)
+
+## reverseList
+## Function will reverse a list that is passed as an argument
+
+def reverseList(passed_list):
+    passed_list.reverse()
+    return passed_list
+
+## isPalindrome
+## Function takes a string as an argument to determine is it is a palindrome
+## Spaces are ignored
+
+def isPalindrome(passed_str):
+    str_list = list(passed_str)
+    backwards_str = str_list.reverse()
+    if str_list == backwards_str:
+        print("\nThe words are a palindrome")
+    else:
+        print("\nThe words are not a palindrome")
