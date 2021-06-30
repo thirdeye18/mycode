@@ -30,5 +30,6 @@ print("\nThe original list ", returned_list)
 print("The reversed list is ", reverseList(returned_list))
 
 ##Part 3 Checking to see if a user supplied string is a palindrome
-test_string = input("\nPlease enter a string to test")
+test_string = input("\nPlease enter a string to test - ")
+print("You entered ", test_string)
 isPalindrome(test_string)

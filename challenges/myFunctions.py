@@ -52,8 +52,11 @@ def reverseList(passed_list):
 ## Spaces are ignored
 
 def isPalindrome(passed_str):
-    str_list = list(passed_str)
-    backwards_str = str_list.reverse()
+    # also will be converting string to lowercase 
+    str_list = list(passed_str.lower())
+    print("The string as a list is ", str_list)
+    backwards_str = reverseList(str_list)
+    print("The list reversed is ", backwards_str)
     if str_list == backwards_str:
         print("\nThe words are a palindrome")
     else:
