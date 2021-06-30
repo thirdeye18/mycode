@@ -41,23 +41,43 @@ def firstLastSearch(test_list):
         print("The first, or last digit is not ", search_int)
 
 ## reverseList
-## Function will reverse a list that is passed as an argument
+## Function will reverse a list or string that is passed as an argument, returns the input as a list, but reversed
+## Function borrowed from method described in https://www.geeksforgeeks.org/python-reversing-list/
 
 def reverseList(passed_list):
-    passed_list.reverse()
-    return passed_list
+    return [ele for ele in reversed(passed_list)]
+
+## removeSpaces
+## Function accepts string input and removes spaces returning the non-space string
+## Works by splitting the string to a list of words then joining them back together 
+
+def removeSpaces(passed_str):
+    return "".join(passed_str.split())
 
 ## isPalindrome
 ## Function takes a string as an argument to determine is it is a palindrome
-## Spaces are ignored
+## Case does not matter, but I have not figured out how to ignore spaces yet
+## string input is converted to lower case and then converted to a list for comparing
 
 def isPalindrome(passed_str):
-    # also will be converting string to lowercase 
-    str_list = list(passed_str.lower())
-    print("The string as a list is ", str_list)
-    backwards_str = reverseList(str_list)
-    print("The list reversed is ", backwards_str)
-    if str_list == backwards_str:
-        print("\nThe words are a palindrome")
+    # convert the string being tested to lowercase and remove spaces
+    mod_str = "".join(passed_str.split()).lower()
+    # print for validation
+    print("The transformed string is ", mod_str)
+    
+    # create a new variable to hold the reversed list and get the reversed list from function
+    reverse_str = "".join(reverseList(mod_str))
+    #print for validation
+    print("The list reversed is ", reverse_str)
+    
+    # Convert the reversed list back to a string for comparing
+    # backwards_str = "".join(backwards_list)
+    # print for validation
+    print("The modified string is ", mod_str)
+    print("The reversed string is ", reverse_str)
+    print("The passed string is ", passed_str)
+
+    if mod_str == reverse_str:
+        print("\nYou entered a palindrome")
     else:
-        print("\nThe words are not a palindrome")
+        print("\nYou did not enter a palindrome")

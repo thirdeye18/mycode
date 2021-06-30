@@ -12,7 +12,7 @@ from  myFunctions import *
 # createList passed to intSearch  
 print("Creating integer list")
 returned_list = createList()
-print("\nPart 1a: Does a specified number appear in this list?")
+#print("\nPart 1a: Does a specified number appear in this list?")
 intSearch(returned_list)
 
 ## Part 1b Given a list of int's determine if the first, or last value is a specified value
@@ -26,7 +26,7 @@ firstLastSearch(returned_list)
 ## Part 2 Reverse the order of the list
 print("\nThe original list ", returned_list)
 # new variable for reversed list
-# reverse_ints = returned_list.reverse
+reverse_ints = returned_list.reverse
 print("The reversed list is ", reverseList(returned_list))
 
 ##Part 3 Checking to see if a user supplied string is a palindrome
