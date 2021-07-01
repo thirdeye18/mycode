@@ -1,6 +1,7 @@
 # myFunctions.py>
 ## All the functions I have made for Python so far
 ## import to desired app using <from ~/mycode/myFunctions.py import *>
+"""Function list: createList, intSearch, firstLastSearch, reverseList, removeSpaces, isPalindrome,  """
 
 ## createIntList.py
 ## Function creates a list of integers from user input
@@ -81,3 +82,18 @@ def isPalindrome(passed_str):
         print("\nYou entered a palindrome")
     else:
         print("\nYou did not enter a palindrome")
+
+## getWords
+## reads in a file and returns a list of all the words in the file
+
+def getWords(filename):
+
+## countWords
+## accepts the list of words from the previous function and counts the occurrences, returning a dictionary
+
+def countWords(word_list):
+
+## display
+## displays the counts after accepting a dictionary containing those counts from count_words()
+
+def display(word_dictionary):
