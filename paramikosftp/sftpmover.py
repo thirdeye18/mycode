@@ -28,19 +28,22 @@ def createTranObj(host_in, port_in):
 
 def main():
     """Called at runtime"""
-    
-    # Get user input for connection
-    host = input("What host address would you like to connect to? ")
-    port = input("What port would you like to try connecting to? ")
-
-    # passing host and port information to create object
-    sftp = createTranObj(host, port)
-    
-    # Passing the transport object into the file moving function
-    movethemfiles(sftp)
-
-    ## close the connection
-    sftp.close() # close the connection
+    try:
+        # Get user input for connection
+        host = input("What host address would you like to connect to? ")
+        port = input("What port would you like to try connecting to? ")
+        
+        # passing host and port information to create object
+        sftp = createTranObj(host, port)
+        
+        # Passing the transport object into the file moving function
+        movethemfiles(sftp)
+        
+        ## close the connection
+        sftp.close() # close the connection
+    except:
+        # sftp.close() # attempt to close the connection of error
+        print("There was an error connecting.")
 
 # If code is being run DIRECTLY
 if __name__ == "__main__":
