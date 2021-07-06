@@ -5,14 +5,14 @@ from pprint import pprint as pp # part of the standard library
 
 ## define some constants
 NASAAPI = 'https://api.nasa.gov/planetary/apod?' # this is our API to call
-MYKEY = 'api_key=CD0siZWVatruUArhyS2SnIwRSDWABF5uT00mA8cS' ## this is our api key
+# MYKEY = 'api_key=CD0siZWVatruUArhyS2SnIwRSDWABF5uT00mA8cS' ## this is our api key
 
-# MYKEY = open("nasa_key", "r").read().rstrip("\n")
+MYKEY = open("nasa_key", "r").read().rstrip("\n")
 
 ## pretty print json
-def main(date):
+def main(date_in):
     """run-time code"""
-    nasaapiobj = requests.get(NASAAPI + MYKEY + date) # call the webservice
+    nasaapiobj = requests.get(NASAAPI + MYKEY + date_in) # call the webservice
     nasaread = nasaapiobj.json() # parse the JSON blob returned
 
     # Show converted json with just the date title and explanation
@@ -38,4 +38,4 @@ user_date = "&date=" + input("Please enter the date for the photo you would like
 
 main(user_date)
 
-# 
+MYKEY.close() 
