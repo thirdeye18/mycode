@@ -1,4 +1,6 @@
 from netmiko import ConnectHandler
+## Attempt to fix error about switch not being ready to accept config, netmiko problem
+from time import sleep
 ## Define our new function called bootstrapper and the expected arugments (all five)
 def bootstrapper(dev_type, dev_ip, dev_un, dev_pw, config):
     try:
@@ -8,6 +10,7 @@ def bootstrapper(dev_type, dev_ip, dev_un, dev_pw, config):
 
         open_connection = ConnectHandler(device_type=dev_type, ip=dev_ip, username=dev_un, password=dev_pw)
         open_connection.enable() # this sets the connection in enable mode
+        # sleep(5)    # wait to ensure switch is ready, this did not work
         # pass the config to the send_config_set() method
         output = open_connection.send_config_set(config_lines)
         print(output) # print the config to the screen # output to the screen
@@ -15,6 +18,7 @@ def bootstrapper(dev_type, dev_ip, dev_un, dev_pw, config):
         open_connection.disconnect() # close the open connection
 
         return True # Everything worked! - "Return TRUE when complete"
-    except:
+    except Exception as error:
+        logger.error('Failed to push: ' + str(error))
         return False # Something failed during the configuration process - "Return FALSE if fails"
 
