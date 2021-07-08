@@ -22,18 +22,7 @@
             register: results     # variable to register with JSON response to eos_command module
                                   # results of both commands are stored in this var "results"
 
-          - name: take a peek as to what is inside of "results"
+          - name: take a peek at "just" the IP returned to the command "show interfaces"
             debug:
-                    var: results
+                    var: results.results[1]['stdout_lines'][2].split()[-1]
 
-          - name: take a peek at "just" the JSON returned to the command "show version"
-            debug:
-                    var: results.results[0]
-
-          - name: take a peek at "just" the JSON returned to the command "show interfaces"
-            debug:
-                    var: results.results[1]
-
-          - name: take a peak at "just" the IP address returned to the command "show interfaces"
-            debug:
-                    var: results.results[1] 
