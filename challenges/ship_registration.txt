@@ -1,0 +1,11 @@
+DEBUG:root:Intergalactic Ship Registration:
+
+  name: Bessie
+  type: Intergalactic
+
+INFO:root:  engines:
+
+    type: Dark Matter
+      max capacity: 63
+WARNING:root:    backup: Chemical
+
