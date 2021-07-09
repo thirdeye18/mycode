@@ -1,0 +1,15 @@
+- name: Create/delete an S3 Bucket
+  hosts: localhost
+  connection: local
+
+  vars_files:
+    - ~/cred.zon
+
+  tasks:
+    - name: make buckets
+      s3_bucket:
+        name: sirbucket77
+        state: present
+        aws_access_key: "{{ ec2_access_key }}"
+        aws_secret_key: "{{ ec2_secret_key }}"
+
